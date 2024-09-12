@@ -1,9 +1,7 @@
-import { Text, View } from "react-native"
+import Root from "./src/Root"
 
 const App = () => {
-  return <View>
-    <Text>Welcome to Sanad App</Text>
-  </View>
+  return <Root />
 }
 
 export default App
