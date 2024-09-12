@@ -1,0 +1,85 @@
+import {
+  View,
+  TextInput,
+  StyleSheet,
+  Pressable,
+  I18nManager,
+} from 'react-native';
+import {P} from './P';
+import {colors} from '../theme/colors';
+import {Icon} from './Icon';
+import {Icons} from '../utils/images';
+import {useState} from 'react';
+import {heightPixel, widthPixel} from '../theme/fonts';
+
+interface InputProps {
+  style?: any;
+  password?: boolean;
+  placeholder?: string;
+  value?: string | null | undefined;
+  onChangeText?: (text: string) => void;
+  label?: string;
+  number?: boolean;
+}
+
+export const Input = ({
+  placeholder,
+  value,
+  onChangeText,
+  label,
+  password = false,
+  style,
+  number,
+}: InputProps) => {
+  const [showPassword, setShowPassword] = useState(false);
+  return (
+    <View style={[styles.container, style]}>
+      <P color={colors.textLight} fw='medium'>{label}</P>
+      <View style={styles.inputContainer}>
+        <TextInput
+          style={[styles.input, I18nManager.isRTL && {textAlign: 'right'}]}
+          placeholder={placeholder}
+          placeholderTextColor={colors.textLight}
+          value={value || undefined}
+          onChangeText={onChangeText}
+          secureTextEntry={password && !showPassword}
+          keyboardType={number ? 'number-pad' : 'default'}
+        />
+        {password && (
+          <Pressable
+            style={{padding: 10}}
+            onPress={() => setShowPassword(curr => !curr)}>
+            <Icon
+              source={Icons[showPassword ? 'eyeSlash' : 'eye']}
+              size={16}
+              color={colors.textLight}
+            />
+          </Pressable>
+        )}
+      </View>
+    </View>
+  );
+};
+
+const styles = StyleSheet.create({
+  container: {
+    marginVertical: heightPixel(10),
+  },
+  inputContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    width: '100%',
+    paddingVertical: heightPixel(5),
+    backgroundColor: 'white',
+    borderRadius: widthPixel(5),
+    overflow: 'hidden',
+    borderWidth: 0.3,
+    borderColor: 'grey',
+    marginTop: heightPixel(5),
+  },
+  input: {
+    flex: 1,
+    padding: widthPixel(8),
+    color: colors.textLight,
+  },
+});
