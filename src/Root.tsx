@@ -1,6 +1,6 @@
 import { NavigationContainer } from "@react-navigation/native"
-import { navTheme } from "./theme/navTheme"
-import { P, AppWrapper } from "./components"
+import { navTheme } from "~theme/navTheme"
+import { P, AppWrapper } from "~components"
 
 const Root = () => {
   return <NavigationContainer theme={navTheme}>
