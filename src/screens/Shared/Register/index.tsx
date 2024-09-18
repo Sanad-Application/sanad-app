@@ -2,12 +2,12 @@ import { View } from 'react-native';
 import { P } from '~components';
 import {globalStyles} from '~theme';
 
-const Home = () => {
+const Register = () => {
   return (
     <View style={globalStyles.container}>
-      <P>Home</P>
+      <P>Register</P>
     </View>
   );
 };
 
-export default Home;
+export default Register;

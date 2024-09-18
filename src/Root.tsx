@@ -1,13 +1,23 @@
 import { NavigationContainer } from "@react-navigation/native"
-import { navTheme } from "~theme/navTheme"
-import { P, AppWrapper } from "~components"
+import { AppWrapper } from "~components"
+import {Provider} from 'react-redux';
+import {persistor, store} from '~store';
+import {PersistGate} from 'redux-persist/integration/react';
+import { navTheme } from "~theme"
+import Navigation from "~navigation"
 
 const Root = () => {
-  return <NavigationContainer theme={navTheme}>
-    <AppWrapper>
-      <P>Welcome to Sanad App!</P>
-    </AppWrapper>
-  </NavigationContainer>
+  return (
+    <Provider store={store}>
+      <PersistGate persistor={persistor}>
+        <NavigationContainer theme={navTheme}>
+          <AppWrapper>
+            <Navigation />
+          </AppWrapper>
+        </NavigationContainer>
+      </PersistGate>
+    </Provider>
+  )
 }
 
 export default Root;

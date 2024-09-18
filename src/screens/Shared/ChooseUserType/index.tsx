@@ -2,12 +2,12 @@ import { View } from 'react-native';
 import { P } from '~components';
 import {globalStyles} from '~theme';
 
-const Home = () => {
+const ChooseUserType = () => {
   return (
     <View style={globalStyles.container}>
-      <P>Home</P>
+      <P>ChooseUserType</P>
     </View>
   );
 };
 
-export default Home;
+export default ChooseUserType;

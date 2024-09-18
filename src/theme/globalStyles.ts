@@ -5,7 +5,7 @@ import {fontPixel, fonts, heightPixel, widthPixel} from './fonts';
 export const globalStyles = StyleSheet.create({
   container: {
     flexGrow: 1,
-    backgroundColor: colors.backgroundLight,
+    backgroundColor: colors.background,
     padding: widthPixel(20),
     paddingBottom: heightPixel(100),
   },
