@@ -5,7 +5,7 @@ import {globalStyles} from '~theme';
 const ChooseUserType = () => {
   return (
     <View style={globalStyles.container}>
-      <P>ChooseUserType</P>
+      <P>هل انت مستخدم عادي ام محامي؟</P>
     </View>
   );
 };
