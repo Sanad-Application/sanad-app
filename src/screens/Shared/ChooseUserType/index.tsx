@@ -1,13 +1,48 @@
-import { View } from 'react-native';
-import { P } from '~components';
-import {globalStyles} from '~theme';
+import { View } from 'react-native'
+import { Button, Container, P, ScrollContainer, Spacer, SquerButton } from '~components'
+import { useAppNavigation } from '~hooks'
+import { useAppDispatch, useAppSelector } from '~store/hooks'
+import { setType } from '~store/slices/authSlice'
+import { globalStyles } from '~theme'
+import { Images } from '~utils/images'
 
 const ChooseUserType = () => {
-  return (
-    <View style={globalStyles.container}>
-      <P>هل انت مستخدم عادي ام محامي؟</P>
-    </View>
-  );
-};
+  const { isLawyer } = useAppSelector(state => state.auth)
+  const dispatch = useAppDispatch()
+  const { navigate } = useAppNavigation()
 
-export default ChooseUserType;
+  const nextStep = () => {
+    navigate('Login')
+  }
+
+  const setLawyer = (value: boolean) => {
+    dispatch(setType({ isLawyer: value }))
+  }
+
+  return (
+    <ScrollContainer>
+      <Container>
+        <Spacer h={25} />
+        <P size={28} fw='bold'>هل انت مستخدم عادي ام محامي؟</P>
+        <Spacer h={25} />
+        <View style={globalStyles.row}>
+          <SquerButton
+            title='مستخدم عادي'
+            active={!isLawyer}
+            onPress={() => setLawyer(false)}
+            img={Images.user} />
+
+          <SquerButton
+            title='محامي'
+            active={isLawyer}
+            onPress={() => setLawyer(true)}
+            img={Images.lawyer} />
+        </View>
+        <Spacer h={25} />
+        <Button title='التالي' onPress={nextStep} />
+      </Container>
+    </ScrollContainer>
+  )
+}
+
+export default ChooseUserType

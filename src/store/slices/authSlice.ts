@@ -4,11 +4,13 @@ import { User } from "~types";
 type AuthState = {
   token: string | null;
   user: User | null;
+  isLawyer: boolean;
 };
 
 const initialState: AuthState = {
   token: null,
   user: null,
+  isLawyer: false,
 };
 
 const authSlice = createSlice({
@@ -16,19 +18,22 @@ const authSlice = createSlice({
   initialState,
   reducers: {
     setToken: (state, action) => {
-      state.token = action.payload.token;
+      return {...state, token: action.payload.token}
     },
 
     setUser: (state, action) => {
-      state.user = action.payload;
+      return {...state, user: action.payload.user}
     },
 
-    logout: state => {
-      state.token = null;
-      state.user = null;
+    setType: (state, action) => {
+      return {...state, isLawyer: action.payload.isLawyer}
+    },
+
+    logout: () => {
+      return initialState;
     },
   },
 });
 
-export const { setToken, setUser, logout } = authSlice.actions;
+export const { setToken, setUser, logout, setType } = authSlice.actions;
 export default authSlice.reducer;
