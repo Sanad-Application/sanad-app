@@ -6,4 +6,5 @@ export const Images = {
 export const Icons = {
   eye: require('~assets/icon/eye.png'),
   eyeSlash: require('~assets/icon/eye-slash.png'),
+  bell: require('~assets/icon/bell.png'),
 }
