@@ -7,7 +7,7 @@ import { P } from './P'
 
 interface ButtonProps {
   title: string;
-  onPressHandler: () => void;
+  onPress: () => void;
   style?: any;
   textStyle?: any;
   loading?: boolean;
@@ -16,13 +16,13 @@ interface ButtonProps {
 }
 
 export const Button = (props: ButtonProps) => {
-  const {title, onPressHandler, style, icon, textStyle, loading, revert} = props;
+  const {title, onPress, style, icon, textStyle, loading, revert} = props;
 
   return (
     <Pressable
       android_ripple={{color: '#DDD'}}
       style={[styles.buttonContianer, revert && {backgroundColor: 'transparent'}, style]}
-      onPress={onPressHandler}>
+      onPress={onPress}>
       {icon && (
         <Icon
           source={Icons[icon as keyof typeof Icons]}
