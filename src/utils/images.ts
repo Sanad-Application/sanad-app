@@ -1,6 +1,8 @@
 export const Images = {
   user: require('~assets/img/user.png'),
   lawyer: require('~assets/img/lawyer.png'),
+  case: require('~assets/img/case.png'),
+  consult: require('~assets/img/consult.png'),
   homeCarousel: [
     require('~assets/img/carousel.png'),
     require('~assets/img/carousel.png'),

@@ -1,10 +1,11 @@
 import { View } from 'react-native'
-import { Button, Container, P, ScrollContainer, Spacer, SquerButton } from '~components'
+import { Button, Container, P, ScrollContainer, Spacer } from '~components'
 import { useAppNavigation } from '~hooks'
 import { useAppDispatch, useAppSelector } from '~store/hooks'
 import { setType } from '~store/slices/authSlice'
 import { globalStyles } from '~theme'
 import { Images } from '~utils/images'
+import { ChooseButton } from './ChooseButton'
 
 const ChooseUserType = () => {
   const { isLawyer } = useAppSelector(state => state.auth)
@@ -26,13 +27,13 @@ const ChooseUserType = () => {
         <P size={28} fw='bold'>هل انت مستخدم عادي ام محامي؟</P>
         <Spacer h={25} />
         <View style={globalStyles.row}>
-          <SquerButton
+          <ChooseButton
             title='مستخدم عادي'
             active={!isLawyer}
             onPress={() => setLawyer(false)}
             img={Images.user} />
 
-          <SquerButton
+          <ChooseButton
             title='محامي'
             active={isLawyer}
             onPress={() => setLawyer(true)}
