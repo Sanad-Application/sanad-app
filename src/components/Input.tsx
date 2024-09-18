@@ -31,8 +31,8 @@ export const Input = ({
 }: InputProps) => {
   const [showPassword, setShowPassword] = useState(false)
   return (
-    <View style={[styles.container, style]}>
-      <View style={styles.inputContainer}>
+    <View style={styles.container}>
+      <View style={[styles.inputContainer, style]}>
         <TextInput
           style={[styles.input, I18nManager.isRTL && { textAlign: 'right' }]}
           placeholder={placeholder}
@@ -60,6 +60,7 @@ export const Input = ({
 const styles = StyleSheet.create({
   container: {
     marginVertical: heightPixel(10),
+    flex: 1
   },
   inputContainer: {
     flexDirection: 'row',
@@ -71,12 +72,13 @@ const styles = StyleSheet.create({
     borderWidth: 0.3,
     borderColor: 'grey',
     marginTop: heightPixel(5),
+    paddingVertical: widthPixel(16),
+    paddingHorizontal: widthPixel(12),
   },
   input: {
     flex: 1,
-    paddingVertical: widthPixel(16),
-    paddingHorizontal: widthPixel(12),
     color: colors.textLight,
     fontSize: widthPixel(16),
+    padding: 0,
   },
 })
