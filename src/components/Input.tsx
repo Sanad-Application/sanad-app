@@ -4,62 +4,58 @@ import {
   StyleSheet,
   Pressable,
   I18nManager,
-} from 'react-native';
-import {P} from './P';
-import {colors} from '../theme/colors';
-import {Icon} from './Icon';
-import {Icons} from '../utils/images';
-import {useState} from 'react';
-import {heightPixel, widthPixel} from '../theme/fonts';
+} from 'react-native'
+import { P } from './P'
+import { colors } from '../theme/colors'
+import { Icon } from './Icon'
+import { Icons } from '../utils/images'
+import { useState } from 'react'
+import { heightPixel, widthPixel } from '../theme/fonts'
 
 interface InputProps {
-  style?: any;
-  password?: boolean;
-  placeholder?: string;
-  value?: string | null | undefined;
-  onChangeText?: (text: string) => void;
-  label?: string;
-  number?: boolean;
+  style?: any
+  password?: boolean
+  placeholder?: string
+  value?: string | null | undefined
+  onChange?: (text: string) => void
+  number?: boolean
 }
 
 export const Input = ({
   placeholder,
   value,
-  onChangeText,
-  label,
+  onChange,
   password = false,
   style,
   number,
 }: InputProps) => {
-  const [showPassword, setShowPassword] = useState(false);
+  const [showPassword, setShowPassword] = useState(false)
   return (
     <View style={[styles.container, style]}>
-      <P color={colors.textLight} fw='medium'>{label}</P>
       <View style={styles.inputContainer}>
         <TextInput
-          style={[styles.input, I18nManager.isRTL && {textAlign: 'right'}]}
+          style={[styles.input, I18nManager.isRTL && { textAlign: 'right' }]}
           placeholder={placeholder}
           placeholderTextColor={colors.textLight}
-          value={value || undefined}
-          onChangeText={onChangeText}
+          value={value || ''}
+          onChangeText={onChange}
           secureTextEntry={password && !showPassword}
           keyboardType={number ? 'number-pad' : 'default'}
         />
         {password && (
           <Pressable
-            style={{padding: 10}}
+            style={{ padding: widthPixel(12) }}
             onPress={() => setShowPassword(curr => !curr)}>
             <Icon
               source={Icons[showPassword ? 'eyeSlash' : 'eye']}
-              size={16}
               color={colors.textLight}
             />
           </Pressable>
         )}
       </View>
     </View>
-  );
-};
+  )
+}
 
 const styles = StyleSheet.create({
   container: {
@@ -69,9 +65,8 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     width: '100%',
-    paddingVertical: heightPixel(5),
-    backgroundColor: 'white',
-    borderRadius: widthPixel(5),
+    backgroundColor: colors.white,
+    borderRadius: widthPixel(12),
     overflow: 'hidden',
     borderWidth: 0.3,
     borderColor: 'grey',
@@ -79,7 +74,9 @@ const styles = StyleSheet.create({
   },
   input: {
     flex: 1,
-    padding: widthPixel(8),
+    paddingVertical: widthPixel(16),
+    paddingHorizontal: widthPixel(12),
     color: colors.textLight,
+    fontSize: widthPixel(16),
   },
-});
+})
