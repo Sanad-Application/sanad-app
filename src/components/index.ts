@@ -1,3 +1,5 @@
+import { executeOnUIRuntimeSync } from 'react-native-reanimated'
+
 export * from './AppWrapper'
 export * from './Icon'
 export * from './Input'
@@ -8,3 +10,4 @@ export * from './ScrollContainer'
 export * from './Spacer'
 export * from './SquareButton'
 export * from './SectionHeader'
+export * from './Tabs'

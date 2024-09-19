@@ -16,4 +16,5 @@ export const Icons = {
   eyeSlash: require('~assets/icon/eye-slash.png'),
   bell: require('~assets/icon/bell.png'),
   search: require('~assets/icon/search.png'),
+  arrowLeft: require('~assets/icon/arrow-left.png'),
 }

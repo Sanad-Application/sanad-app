@@ -4,6 +4,7 @@ import { globalStyles } from '~theme'
 import { SearchBar } from './SearchBar'
 import { HomeCarousel } from './Carousel'
 import { ServicesList } from './ServicesList'
+import { LawyersList } from './LawyersList'
 
 const Home = () => {
   return (
@@ -11,6 +12,7 @@ const Home = () => {
       <SearchBar />
       <HomeCarousel />
       <ServicesList />
+      <LawyersList />
     </View>
   )
 }
