@@ -4,5 +4,6 @@ export const navTheme = {
   ...DefaultTheme,
   colors: {
     ...DefaultTheme.colors,
+    background: 'transparent',
   },
 };
