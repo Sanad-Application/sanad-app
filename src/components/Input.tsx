@@ -44,7 +44,6 @@ export const Input = ({
         />
         {password && (
           <Pressable
-            style={{ padding: widthPixel(12) }}
             onPress={() => setShowPassword(curr => !curr)}>
             <Icon
               source={Icons[showPassword ? 'eyeSlash' : 'eye']}
@@ -60,7 +59,6 @@ export const Input = ({
 const styles = StyleSheet.create({
   container: {
     marginVertical: heightPixel(10),
-    flex: 1
   },
   inputContainer: {
     flexDirection: 'row',
@@ -77,7 +75,7 @@ const styles = StyleSheet.create({
   },
   input: {
     flex: 1,
-    color: colors.textLight,
+    color: colors.text,
     fontSize: widthPixel(16),
     padding: 0,
   },

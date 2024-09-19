@@ -36,12 +36,13 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     marginVertical: heightPixel(20),
+    borderRadius: widthPixel(16),
+    overflow: 'hidden',
   },
   imgContainer: {
     width: '100%',
     justifyContent: 'center',
     alignItems: 'center',
-    borderRadius: widthPixel(12),
   },
   img: {
     width: '100%',
