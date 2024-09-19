@@ -3,6 +3,7 @@ export const Images = {
   lawyer: require('~assets/img/lawyer.png'),
   case: require('~assets/img/case.png'),
   consult: require('~assets/img/consult.png'),
+  ex_lawyer: require('~assets/img/ex_lawyer.png'),
   homeCarousel: [
     require('~assets/img/carousel.png'),
     require('~assets/img/carousel.png'),
@@ -17,4 +18,7 @@ export const Icons = {
   bell: require('~assets/icon/bell.png'),
   search: require('~assets/icon/search.png'),
   arrowLeft: require('~assets/icon/arrow-left.png'),
+  star: require('~assets/icon/star.png'),
+  briefcase: require('~assets/icon/briefcase.png'),
+  location: require('~assets/icon/location.png'),
 }

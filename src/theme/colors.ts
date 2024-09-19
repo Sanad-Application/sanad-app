@@ -8,7 +8,7 @@ export const colors = {
   backgroundDark: "#5156BE",
   backgroundLight: "#E6E6E6",
   textLight: '#999999',
-  shadow: '#9D9D9D1F',
+  shadow: '#9D9D9D40',
   success: '#28a745',
   greyIcon: '#6c757d',
   error: 'crimson',

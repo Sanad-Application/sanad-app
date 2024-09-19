@@ -1,11 +1,7 @@
 import { Pressable, ScrollView, StyleSheet } from "react-native"
 import { P } from "./P"
 import { colors, widthPixel } from "~theme"
-
-type Tab = {
-  label: string
-  key: string
-}
+import { Tag } from "~types/Category"
 
 type TabProps = {
   label: string
@@ -14,7 +10,7 @@ type TabProps = {
 }
 
 type TabsProps = {
-  data: Tab[]
+  data: Tag[]
   active: number
   setActive: (index: number) => void
 }
@@ -37,7 +33,7 @@ export const Tabs = ({ data, active, setActive }: TabsProps) => {
       contentContainerStyle={styles.container}>
       {data.map((tab, i) => (
         <Tab
-          key={tab.key}
+          key={tab.id}
           label={tab.label}
           active={i === active}
           onClick={() => handleClick(i)}

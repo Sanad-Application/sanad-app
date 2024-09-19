@@ -1,7 +1,5 @@
-export interface User {
+export type User = {
   id: string;
-  code: number;
-  code_expired_at: Date;
   created_at: Date;
   dob: Date;
   email: string;
@@ -10,9 +8,13 @@ export interface User {
   last_name: string;
   image_url: string;
   role_id: number;
+  location: string;
 };
 
-export interface Lawyer extends User {
+export type Lawyer = {
   bio: string;
   hourly_rate: number;
+  user: User;
+  years_of_experience: number;
+  rating: number;
 }

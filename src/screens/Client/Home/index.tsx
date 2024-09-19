@@ -1,6 +1,4 @@
-import { View } from 'react-native'
-import { P } from '~components'
-import { globalStyles } from '~theme'
+import { Container, ScrollContainer } from '~components'
 import { SearchBar } from './SearchBar'
 import { HomeCarousel } from './Carousel'
 import { ServicesList } from './ServicesList'
@@ -8,12 +6,14 @@ import { LawyersList } from './LawyersList'
 
 const Home = () => {
   return (
-    <View style={globalStyles.container}>
-      <SearchBar />
-      <HomeCarousel />
-      <ServicesList />
-      <LawyersList />
-    </View>
+    <ScrollContainer>
+      <Container>
+        <SearchBar />
+        <HomeCarousel />
+        <ServicesList />
+        <LawyersList />
+      </Container>
+    </ScrollContainer>
   )
 }
 
