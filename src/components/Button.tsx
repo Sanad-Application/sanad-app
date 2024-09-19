@@ -20,7 +20,7 @@ export const Button = (props: ButtonProps) => {
 
   return (
     <Pressable
-      android_ripple={{ color: '#DDD' }}
+      android_ripple={{ color: colors.background }}
       style={[styles.buttonContianer, revert && { backgroundColor: 'transparent' }, style]}
       onPress={onPress}>
       {icon && (

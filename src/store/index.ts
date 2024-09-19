@@ -11,15 +11,17 @@ import {
   persistReducer,
   persistStore,
 } from 'redux-persist';
+import uiSlice from './slices/uiSlice'
 
 const persistConfig = {
   key: 'root',
   storage: AsyncStorage,
-  whitelist: ['auth', 'cart'],
+  whitelist: ['auth'],
 };
 
 const rootReducer = combineReducers({
   auth: authSlice,
+  ui: uiSlice,
 });
 
 const reducer = persistReducer(persistConfig, rootReducer);
