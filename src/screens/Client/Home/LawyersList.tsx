@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import { StyleSheet, View } from "react-native"
-import { SectionHeader, Tabs } from "~components"
+import { SectionHeader, Spacer, Tabs } from "~components"
 import { lawyerService } from "~services/lawyers"
 import { heightPixel } from "~theme"
 import { tags, lawyers } from "~utils/fakeData"
@@ -33,6 +33,7 @@ export const LawyersList = () => {
     <View style={styles.container}>
       <SectionHeader title="المحاميين" onViewAll={goToLawersScreen} />
       <Tabs data={tags} active={activeTag} setActive={setActiveTag} />
+      <Spacer h={12} />
       <View>
         {lawyers.map((lawyer) => (
           <LawyerTab key={lawyer.user.id} data={lawyer} />

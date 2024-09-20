@@ -47,7 +47,7 @@ export const LawyerTab = ({ data }: { data: Lawyer }) => {
 const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
-    borderColor: colors.primary + '70',
+    borderColor: colors.textLight + '50',
     borderWidth: widthPixel(1),
     borderRadius: widthPixel(8),
     marginBottom: widthPixel(16),
@@ -55,12 +55,13 @@ const styles = StyleSheet.create({
     backgroundColor: colors.white,
     overflow: 'hidden',
   },
+
   imgContainer: {
     width: widthPixel(100),
     marginRight: widthPixel(16),
-    borderColor: colors.primary + '70',
     borderRadius: widthPixel(12),
   },
+
   details: {
     padding: widthPixel(16),
     flex: 1,

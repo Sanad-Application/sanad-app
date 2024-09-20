@@ -53,7 +53,7 @@ export const BottomTabBar = ({
             let label
             let tabBarIcon = null
             let tabBarIconColor = isFocused
-              ? colors.text
+              ? colors.primary
               : colors.textLight
 
             switch (route.name) {
@@ -82,7 +82,7 @@ export const BottomTabBar = ({
                 style={styles.button}>
                 <Icon source={tabBarIcon} size={22} color={tabBarIconColor} />
                 <P
-                  color={isFocused ? colors.text : colors.textLight}
+                  color={tabBarIconColor}
                   size={12}>
                   {label}
                 </P>
