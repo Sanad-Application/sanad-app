@@ -21,4 +21,8 @@ export const Icons = {
   star: require('~assets/icon/star.png'),
   briefcase: require('~assets/icon/briefcase.png'),
   location: require('~assets/icon/location.png'),
+  home: require('~assets/icon/home.png'),
+  profile: require('~assets/icon/profile.png'),
+  request: require('~assets/icon/request.png'),
+  chat: require('~assets/icon/chat.png'),
 }
