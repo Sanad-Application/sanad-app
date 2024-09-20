@@ -1,11 +1,10 @@
 import { View } from 'react-native'
-import { Button, Container, P, ScrollContainer, Spacer } from '~components'
+import { Button, Container, P, ScrollContainer, Spacer, ChooseButton } from '~components'
 import { useAppNavigation } from '~hooks'
 import { useAppDispatch, useAppSelector } from '~store/hooks'
 import { setType } from '~store/slices/authSlice'
 import { globalStyles } from '~theme'
 import { Images } from '~utils/images'
-import { ChooseButton } from './ChooseButton'
 
 const ChooseUserType = () => {
   const { isLawyer } = useAppSelector(state => state.auth)

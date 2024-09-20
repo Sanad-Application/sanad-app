@@ -8,12 +8,13 @@ type ChooseButtonProps = {
   active?: boolean
   img?: ImageSourcePropType
   imgUri?: string
+  style?: object
 }
 
-export const ChooseButton = ({ title, onPress, active, img, imgUri }: ChooseButtonProps) => {
+export const ChooseButton = ({ title, onPress, active, img, imgUri, style }: ChooseButtonProps) => {
   return (
     <Pressable style={styles.container} onPress={onPress}>
-      <View style={[styles.square, active && styles.squareActive]}>
+      <View style={[styles.square, style, active && styles.squareActive]}>
         <Image source={img || { uri: imgUri }} style={globalStyles.image} />
       </View>
       <P fw="medium" size={16} color={active ? colors.text : colors.textLight}>{title}</P>
@@ -23,7 +24,6 @@ export const ChooseButton = ({ title, onPress, active, img, imgUri }: ChooseButt
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
   },

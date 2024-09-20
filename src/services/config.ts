@@ -8,12 +8,13 @@ const client = axios.create({baseURL});
 
 const constructLog = (req: any) => {
   let url = req.responseURL?.substring(baseURL.length);
-  return `[${req._method}] ${url} ${req.status}`
-}
+  return `[${req._method}] ${url} ${req.status}`;
+};
 
 const injectToken = async (config: any) => {
-  const token = await AsyncStorage.getItem('token') || null;
-  if(token) config.headers.Authorization = `Bearer ${token}`;
+  const token = (await AsyncStorage.getItem('token')) || null;
+  console.log(token);
+  if (token) config.headers.Authorization = `Bearer ${token}`;
   return config;
 };
 
