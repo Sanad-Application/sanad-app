@@ -10,7 +10,7 @@ export const Images = {
     require('~assets/img/carousel.png'),
     require('~assets/img/carousel.png'),
   ],
-}
+};
 
 export const Icons = {
   eye: require('~assets/icon/eye.png'),
@@ -25,4 +25,5 @@ export const Icons = {
   profile: require('~assets/icon/profile.png'),
   request: require('~assets/icon/request.png'),
   chat: require('~assets/icon/chat.png'),
-}
+  arrowCircle: require('~assets/icon/arrow-circle.png'),
+};

@@ -1,11 +1,15 @@
 import { Image, StyleSheet, View } from "react-native"
 import { Button, Icon, P } from "~components"
+import { useAppNavigation } from "~hooks"
 import { colors, fontPixel, globalStyles, widthPixel } from "~theme"
 import { Lawyer } from "~types"
 import { Icons, Images } from "~utils/images"
 
 export const LawyerTab = ({ data }: { data: Lawyer }) => {
-  const goToLawerScreen = () => null
+  const { navigate } = useAppNavigation()
+
+  const goToLawerScreen = () =>
+    navigate('RequestStack', { screen: 'MakeRequest', params: { lawyer: data } })
 
   return (
     <View style={styles.container}>

@@ -1,7 +1,7 @@
 export type User = {
   id: string;
-  created_at: Date;
-  dob: Date;
+  created_at: string;
+  dob: string;
   email: string;
   is_email_verified: boolean;
   first_name: string;
@@ -17,4 +17,4 @@ export type Lawyer = {
   user: User;
   years_of_experience: number;
   rating: number;
-}
+};

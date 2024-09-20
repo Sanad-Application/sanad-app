@@ -31,8 +31,8 @@ export const lawyers: Lawyer[] = [
     hourly_rate: 50,
     user: {
       id: '1',
-      created_at: new Date(),
-      dob: new Date(),
+      created_at: new Date().toDateString(),
+      dob: new Date().toDateString(),
       email: 'a@gmail.com',
       is_email_verified: true,
       first_name: 'محمد',
@@ -49,8 +49,8 @@ export const lawyers: Lawyer[] = [
     hourly_rate: 60,
     user: {
       id: '2',
-      created_at: new Date(),
-      dob: new Date(),
+      created_at: new Date().toDateString(),
+      dob: new Date().toDateString(),
       email: 'ss@gmail.com',
       is_email_verified: true,
       first_name: 'سعيد',
@@ -67,8 +67,8 @@ export const lawyers: Lawyer[] = [
     hourly_rate: 70,
     user: {
       id: '3',
-      created_at: new Date(),
-      dob: new Date(),
+      created_at: new Date().toDateString(),
+      dob: new Date().toDateString(),
       email: 'hh@gmail.com',
       is_email_verified: true,
       first_name: 'حسن',
