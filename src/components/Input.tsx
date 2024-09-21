@@ -16,6 +16,7 @@ interface InputProps {
   style?: any
   password?: boolean
   placeholder?: string
+  label?: string
   value?: string | null | undefined
   onChange?: (text: string) => void
   number?: boolean
@@ -24,6 +25,7 @@ interface InputProps {
 export const Input = ({
   placeholder,
   value,
+  label,
   onChange,
   password = false,
   style,
@@ -32,6 +34,7 @@ export const Input = ({
   const [showPassword, setShowPassword] = useState(false)
   return (
     <View style={styles.container}>
+      {label && <P>{label}</P>}
       <View style={[styles.inputContainer, style]}>
         <TextInput
           style={[styles.input, I18nManager.isRTL && { textAlign: 'right' }]}

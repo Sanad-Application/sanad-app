@@ -22,6 +22,11 @@ export const globalStyles = StyleSheet.create({
     textAlign: 'left',
   },
 
+  textArea: {
+    height: heightPixel(200),
+    alignItems: 'flex-start',
+  },
+
   image: {
     width: '100%',
     height: '100%',

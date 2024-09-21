@@ -8,24 +8,24 @@ const MakeRequest = ({ route }: any) => {
   const { lawyer } = route.params
   const [step, setStep] = useState(1)
   const [serviceType, setServiceType] = useState('')
-  const [spec, setSpec] = useState('')
 
-  const { goBack } = useAppNavigation()
+  const { goBack, navigate } = useAppNavigation()
 
   const handleBack = () => {
     if (step === 1) return goBack()
     setStep(curr => {
       if (curr === 2) setServiceType('')
-      if (curr === 3) setSpec('')
       return curr - 1
     })
   }
 
   useMemo(() => {
-    if (serviceType && spec) setStep(3)
-    else if (serviceType) setStep(2)
+    if (serviceType) setStep(2)
     else setStep(1)
-  }, [spec, serviceType])
+  }, [serviceType])
+
+  const setSpec = (spec: string) =>
+    navigate('RequestDetails', { lawyer, serviceType, spec })
 
   return (
     <ScrollContainer>
