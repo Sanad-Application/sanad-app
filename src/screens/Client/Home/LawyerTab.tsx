@@ -9,7 +9,7 @@ export const LawyerTab = ({ data }: { data: Lawyer }) => {
   const { navigate } = useAppNavigation()
 
   const goToLawerScreen = () =>
-    navigate('RequestStack', { screen: 'MakeRequest', params: { lawyer: data } })
+    navigate('MakeRequest', { lawyer: data })
 
   return (
     <View style={styles.container}>

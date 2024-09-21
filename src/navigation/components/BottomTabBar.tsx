@@ -57,19 +57,19 @@ export const BottomTabBar = ({
               : colors.textLight
 
             switch (route.name) {
-              case 'HomeStack':
+              case 'Home':
                 tabBarIcon = Icons.home
                 label = 'الرئيسية'
                 break
-              case 'RequestStack':
+              case 'Requests':
                 tabBarIcon = Icons.request
                 label = 'الحجوزات'
                 break
-              case 'ChatStack':
+              case 'ChatList':
                 tabBarIcon = Icons.chat
                 label = 'المحادثات'
                 break
-              case 'ProfileStack':
+              case 'Profile':
                 tabBarIcon = Icons.profile
                 label = 'الحساب'
                 break
