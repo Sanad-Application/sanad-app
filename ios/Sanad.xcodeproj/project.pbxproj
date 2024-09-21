@@ -17,6 +17,8 @@
 		0C07D1EBBABB4F12B20D0BA6 /* IBMPlexSansArabic-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0625E61A299F46F699A12F7F /* IBMPlexSansArabic-Bold.ttf */; };
 		D70144BD39814FA394727CB0 /* IBMPlexSansArabic-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1750D0BAE3ED41D99F6BE61E /* IBMPlexSansArabic-Medium.ttf */; };
 		401FFE61A27D418592DB3530 /* IBMPlexSansArabic-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C7E8A68D09F4415C9FB2D32A /* IBMPlexSansArabic-Regular.ttf */; };
+		5777AA3608FE42EAB9EA34E0 /* BootSplash.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 25BCA825F4F44A689BFDE9AF /* BootSplash.storyboard */; };
+		CB4D49E55F974B34A150203D /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A2D9A0AB3E194F10A3E63C13 /* Colors.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +53,8 @@
 		0625E61A299F46F699A12F7F /* IBMPlexSansArabic-Bold.ttf */ = {isa = PBXFileReference; name = "IBMPlexSansArabic-Bold.ttf"; path = "../assets/fonts/IBMPlexSansArabic-Bold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		1750D0BAE3ED41D99F6BE61E /* IBMPlexSansArabic-Medium.ttf */ = {isa = PBXFileReference; name = "IBMPlexSansArabic-Medium.ttf"; path = "../assets/fonts/IBMPlexSansArabic-Medium.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		C7E8A68D09F4415C9FB2D32A /* IBMPlexSansArabic-Regular.ttf */ = {isa = PBXFileReference; name = "IBMPlexSansArabic-Regular.ttf"; path = "../assets/fonts/IBMPlexSansArabic-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		25BCA825F4F44A689BFDE9AF /* BootSplash.storyboard */ = {isa = PBXFileReference; name = "BootSplash.storyboard"; path = "Sanad/BootSplash.storyboard"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		A2D9A0AB3E194F10A3E63C13 /* Colors.xcassets */ = {isa = PBXFileReference; name = "Colors.xcassets"; path = "Sanad/Colors.xcassets"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = folder.assetcatalog; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +104,8 @@
 				81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */,
 				13B07FB71A68108700A75B9A /* main.m */,
 				13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */,
+				25BCA825F4F44A689BFDE9AF /* BootSplash.storyboard */,
+				A2D9A0AB3E194F10A3E63C13 /* Colors.xcassets */,
 			);
 			name = Sanad;
 			sourceTree = "<group>";
@@ -266,6 +272,8 @@
 				0C07D1EBBABB4F12B20D0BA6 /* IBMPlexSansArabic-Bold.ttf in Resources */,
 				D70144BD39814FA394727CB0 /* IBMPlexSansArabic-Medium.ttf in Resources */,
 				401FFE61A27D418592DB3530 /* IBMPlexSansArabic-Regular.ttf in Resources */,
+				5777AA3608FE42EAB9EA34E0 /* BootSplash.storyboard in Resources */,
+				CB4D49E55F974B34A150203D /* Colors.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

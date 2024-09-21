@@ -1,9 +1,8 @@
-import { View } from 'react-native'
+import { StyleSheet, View } from 'react-native'
 import { Button, Container, P, ScrollContainer, Spacer, ChooseButton } from '~components'
 import { useAppNavigation } from '~hooks'
 import { useAppDispatch, useAppSelector } from '~store/hooks'
 import { setType } from '~store/slices/authSlice'
-import { globalStyles } from '~theme'
 import { Images } from '~utils/images'
 
 const ChooseUserType = () => {
@@ -25,7 +24,7 @@ const ChooseUserType = () => {
         <Spacer h={25} />
         <P size={28} fw='bold'>هل انت مستخدم عادي ام محامي؟</P>
         <Spacer h={25} />
-        <View style={globalStyles.row}>
+        <View style={styles.row}>
           <ChooseButton
             title='مستخدم عادي'
             active={!isLawyer}
@@ -46,3 +45,10 @@ const ChooseUserType = () => {
 }
 
 export default ChooseUserType
+
+const styles = StyleSheet.create({
+  row: {
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+  },
+})

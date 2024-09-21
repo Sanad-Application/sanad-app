@@ -2,6 +2,7 @@ import { useEffect } from "react"
 import { authService } from "~services/auth"
 import { useAppDispatch, useAppSelector } from "~store/hooks"
 import { setUser } from "~store/slices/authSlice"
+import BootSplash from "react-native-bootsplash"
 
 export const useGetUser = () => {
   const dispatch = useAppDispatch()
@@ -13,13 +14,13 @@ export const useGetUser = () => {
       dispatch(setUser(res.data))
     } catch (e) {
     } finally {
-      // Hide splash
+      BootSplash.hide({ fade: true })
     }
   }
 
   useEffect(() => {
     if (!token) {
-      // Hide splash
+      BootSplash.hide({ fade: true })
       return
     }
 
