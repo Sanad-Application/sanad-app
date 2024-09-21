@@ -26,4 +26,5 @@ export const Icons = {
   request: require('~assets/icon/request.png'),
   chat: require('~assets/icon/chat.png'),
   arrowCircle: require('~assets/icon/arrow-circle.png'),
+  back: require('~assets/icon/back.png'),
 };
