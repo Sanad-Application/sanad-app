@@ -1,1 +1,2 @@
-export * from './constructRegisterData'
+export * from './constructRegisterData';
+export * from './checkRegisterData';

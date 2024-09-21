@@ -3,7 +3,7 @@ import { Container, Input, Button, ScrollContainer, Spacer } from '~components'
 import { Welcome } from './Welcome'
 import { GoToLogin } from './GoToLogin'
 import { authService } from '~services/auth'
-import { constructRegisterData } from '~helpers'
+import { checkRegisterData, constructRegisterData } from '~helpers'
 import { useAppDispatch, useAppSelector } from '~store/hooks'
 import { showSnack } from '~store/slices/uiSlice'
 import { useAppNavigation } from '~hooks'
@@ -23,8 +23,10 @@ const Register = () => {
 
   const handleRegister = async () => {
     try {
-      if (password !== confirmPassword)
-        return dispatch(showSnack({ type: 'error', text: "كلمة المرور غير متطابقة" }))
+      const errorMessage = checkRegisterData(name, email, password, confirmPassword)
+
+      if (errorMessage)
+        return dispatch(showSnack({ type: 'error', text: errorMessage }))
 
       setLoading(true)
       await authService.register(constructRegisterData(name, email, password), isLawyer)
@@ -32,7 +34,6 @@ const Register = () => {
       nextScreen()
     } catch (e) {
       // TODO: Handle error
-      console.log(e)
       dispatch(showSnack({ type: 'error', text: "فشل انشاء الحساب, حاول مرة أخري" }))
     } finally {
       setLoading(false)

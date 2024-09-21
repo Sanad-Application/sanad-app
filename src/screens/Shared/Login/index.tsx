@@ -6,6 +6,7 @@ import { authService } from '~services/auth'
 import { useAppDispatch } from '~store/hooks'
 import { login } from '~store/slices/authSlice'
 import AsyncStorage from '@react-native-async-storage/async-storage'
+import { showSnack } from '~store/slices/uiSlice'
 
 const Login = () => {
   // TODO: remove default values
@@ -23,9 +24,9 @@ const Login = () => {
 
       await AsyncStorage.setItem('token', token)
       dispatch(login({ token, user }))
-    } catch (error) {
-      // TODO: handle error
-      console.log("error")
+    } catch (error: any) {
+      let message = error?.response?.status === 400 ? 'البيانات المدخلة غير صحيحة' : 'حدث خطأ ما'
+      dispatch(showSnack({ type: 'error', text: message }))
     } finally {
       setLoading(false)
     }
