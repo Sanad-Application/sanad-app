@@ -1,10 +1,60 @@
-# Sanad - Application
+# Sanad
 
-## Overview
+Sanad is a React Native mobile application built with modern technologies to provide a seamless and performant experience. The app leverages React Native for cross-platform development, Redux Toolkit for state management, and Firebase for backend services like authentication and push notifications. It includes various libraries such as Axios for handling API requests, React Navigation for smooth navigation, and Gifted Chat for implementing chat features. Additionally, it incorporates TypeScript for type safety and Reanimated for advanced animations, making the app robust and scalable.
 
-Sanad is a mobile application built using React Native to provide a seamless cross-platform experience on both Android and iOS. It leverages a modern tech stack, including Redux for state management, Axios for handling API requests, and React Navigation for smooth and efficient screen transitions. The app uses TypeScript to ensure strong type safety and better code quality. Additionally, it integrates libraries like React Native Reanimated for animations.
+## Table of Contents
 
----
+1. [Project Overview](#project-overview)
+2. [Tech Stack](#tech-stack)
+3. [Installation](#installation)
+4. [Running the App](#running-the-app)
+5. [Project Structure](#project-structure)
+6. [Dependencies](#dependencies)
+
+## Project Overview
+
+Sanad is a law service application powered with AI models. Our goal is to facilitate the whole process of finding a suitable lawyer, going to the court, finishing legal papers, asking for legal advice, and more.
+
+## Tech Stack
+
+- **React Native**: 0.75.3
+- **React**: 18.3.1
+- **Redux Toolkit**: ^2.2.7
+- **Firebase**: ^20.5.0 (for app and messaging functionalities)
+- **Axios**: ^1.7.7 (for network requests)
+- **TypeScript**: 5.0.4 (used for static type checking)
+
+## Installation
+
+1. Clone the repository:
+
+   ```bash
+   git clone https://github.com/your-username/sanad.git
+   cd sanad
+   ```
+
+2. Install dependencies:
+
+   ```bash
+   yarn install
+   ```
+
+3. Setup Firebase:
+   - Add your Firebase config files as described in the Firebase documentation.
+
+## Running the App
+
+To run the app on Android:
+
+```bash
+yarn android
+```
+
+To run the app on iOS:
+
+```bash
+yarn ios
+```
 
 ## Project Structure
 
@@ -34,112 +84,36 @@ Sanad/
 └── package.json            # Project dependencies
 ```
 
----
-
 ## Dependencies
 
-The project uses the following major dependencies:
+Below is a list of core dependencies used in the Sanad app:
 
 ### Main Dependencies
 
-- **@react-native-async-storage/async-storage**: `^2.0.0`  
-  Asynchronous storage for React Native.
-- **@react-navigation/bottom-tabs**: `^6.6.1`  
-  Bottom tab navigation for React Navigation.
-- **@react-navigation/native**: `^6.1.18`  
-  Handles navigation between screens.
-- **@react-navigation/native-stack**: `^6.11.0`  
-  Stack-based navigation for screens.
-- **@reduxjs/toolkit**: `^2.2.7`  
-  Toolkit for efficient Redux development.
-- **axios**: `^1.7.7`  
-  HTTP client for making API requests.
-- **react**: `18.3.1`  
-  Core React library for building UI components.
-- **react-native**: `0.75.3`  
-  Framework for building native apps using React.
-- **react-native-confirmation-code-field**: `^7.4.0`  
-  Component for confirmation code input.
-- **react-native-gesture-handler**: `^2.19.0`  
-  Gesture handling for React Native.
-- **react-native-logs**: `^5.1.0`  
-  Logging utility for React Native.
-- **react-native-reanimated**: `^3.15.2`  
-  Animation library for React Native.
-- **react-native-reanimated-carousel**: `^3.5.1`  
-  Carousel component using Reanimated.
-- **react-native-restart**: `^0.0.27`  
-  Utility to restart React Native app.
-- **react-native-safe-area-context**: `^4.11.0`  
-  Ensures the app respects safe areas in iOS and Android.
-- **react-native-screens**: `^3.34.0`  
-  Manages and optimizes navigation transitions.
-- **react-redux**: `^9.1.2`  
-  Official React bindings for Redux.
-- **redux-persist**: `^6.0.0`  
-  Persist and rehydrate Redux store.
+- **@react-native-async-storage/async-storage**: ^2.0.0 - Storage solution for React Native.
+- **@react-native-firebase/app**: ^20.5.0 - Firebase integration.
+- **@react-native-firebase/messaging**: ^20.5.0 - Firebase cloud messaging.
+- **@react-navigation/bottom-tabs**: ^6.6.1 - Navigation with bottom tabs.
+- **@react-navigation/native**: ^6.1.18 - Core utilities for React Navigation.
+- **@react-navigation/native-stack**: ^6.11.0 - Stack navigator for React Navigation.
+- **@reduxjs/toolkit**: ^2.2.7 - For state management using Redux.
+- **axios**: ^1.7.7 - Promise-based HTTP client for API calls.
+- **react-native-bootsplash**: ^6.1.3 - Splash screen for React Native.
+- **react-native-confirmation-code-field**: ^7.4.0 - For OTP input fields.
+- **react-native-document-picker**: ^9.3.1 - To pick documents in the app.
+- **react-native-gifted-chat**: ^2.6.3 - Chat UI implementation.
+- **react-native-reanimated**: ^3.15.2 - For animations in React Native.
+- **react-native-reanimated-carousel**: ^3.5.1 - Carousel implementation.
+- **react-native-restart**: ^0.0.27 - Restarts the React Native app programmatically.
+- **react-native-safe-area-context**: ^4.11.0 - Handles safe area issues in React Native.
+- **react-redux**: ^9.1.2 - Official bindings for Redux in React.
+- **redux-persist**: ^6.0.0 - To persist Redux state across sessions.
 
 ### Development Dependencies
 
-- **@babel/core**: `^7.20.0`  
-  Babel compiler core.
-- **@babel/preset-env**: `^7.20.0`  
-  Babel preset for compiling ES6+ JavaScript.
-- **@babel/runtime**: `^7.20.0`  
-  Babel runtime helpers.
-- **@react-native/babel-preset**: `0.75.3`  
-  Babel preset for React Native.
-- **@react-native/eslint-config**: `0.75.3`  
-  ESLint configuration for React Native.
-- **@react-native/metro-config**: `0.75.3`  
-  Metro bundler configuration for React Native.
-- **@react-native/typescript-config**: `0.75.3`  
-  TypeScript configuration for React Native.
-- **@types/react**: `^18.2.6`  
-  TypeScript definitions for React.
-- **@types/react-test-renderer**: `^18.0.0`  
-  TypeScript definitions for react-test-renderer.
-- **babel-jest**: `^29.6.3`  
-  Jest plugin for Babel.
-- **babel-plugin-module-resolver**: `^5.0.2`  
-  Babel plugin to resolve modules.
-- **eslint**: `^8.19.0`  
-  Linter for JavaScript/TypeScript code quality.
-- **jest**: `^29.6.3`  
-  Testing framework for JavaScript.
-- **prettier**: `2.8.8`  
-  Code formatter.
-- **react-test-renderer**: `18.3.1`  
-  Test renderer for React.
-- **typescript**: `5.0.4`  
-  TypeScript language.
-
----
-
-## How to Run the Project
-
-1. Install dependencies:
-
-   ```bash
-   yarn install
-   ```
-
-2. Start the app:
-
-   For Android:
-
-   ```bash
-   yarn run android
-   ```
-
-   For iOS:
-
-   ```bash
-   yarn run ios
-   ```
-
----
-
-## Notes
-
-- Ensure you have [React Native CLI](https://reactnative.dev/docs/environment-setup) set up properly.
+- **@babel/core**: ^7.20.0 - Babel transpiler for modern JavaScript.
+- **@babel/preset-env**: ^7.20.0 - Preset for compiling ES2015+ syntax.
+- **eslint**: ^8.19.0 - Linting tool for JavaScript.
+- **jest**: ^29.6.3 - JavaScript testing framework.
+- **typescript**: 5.0.4 - Superset of JavaScript with static types.
+- **babel-plugin-module-resolver**: ^5.0.2 - Simplifies import paths with custom module resolution.
