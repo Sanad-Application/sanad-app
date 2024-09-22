@@ -1,9 +1,9 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs"
 import { BottomTabBar } from "../components/BottomTabBar"
-import Home from "~screens/Client/Home"
-import Requests from "~screens/Client/Requests"
+import Home from "~screens/Lawyer/Home"
 import ChatList from "~screens/Shared/ChatList"
 import Profile from "~screens/Shared/Profile"
+import Requests from "~screens/Lawyer/Requests"
 
 const Tab = createBottomTabNavigator()
 

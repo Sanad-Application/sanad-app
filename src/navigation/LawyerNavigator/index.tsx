@@ -1,12 +1,12 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
-import Home from '~screens/Lawyer/Home'
+import BottomTabs from './BottomTabs'
 
 const Stack = createNativeStackNavigator()
 
 const LawyerNavigator = () => {
   return (
     <Stack.Navigator screenOptions={{ headerShown: false }}>
-      <Stack.Screen name="Home" component={Home} />
+      <Stack.Screen name="BottomTabs" component={BottomTabs} />
     </Stack.Navigator>
   )
 }

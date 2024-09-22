@@ -3,8 +3,8 @@ import client from './config';
 const {get, post} = client;
 
 export const authService = {
-  login: (email: string, password: string, fcm_token: string) =>
-    post('/auth/login', {email, password, fcm_token}),
+  login: (email: string, password: string, fcmToken: string) =>
+    post('/auth/login', {email, password, fcmToken}),
   register: (data: object, lawyer: boolean) =>
     post(`/auth/${lawyer ? 'lawyer' : 'client'}/signup`, data),
   verifyEmail: (email: string, code: string) =>
