@@ -2,23 +2,50 @@ import { useState } from 'react'
 import { BackButton, Button, Container, Input, ScrollContainer, SectionHeader, Spacer } from '~components'
 import { globalStyles } from '~theme'
 import { UploadFile } from './UploadFile'
+import { requestService } from '~services/request'
+import { RequestData } from '~types'
+import { useAppDispatch } from '~store/hooks'
+import { showSnack } from '~store/slices/uiSlice'
 
-const RequestDetails = ({ route }: any) => {
-  const { lawyer, serviceType, spec } = route.params
+const RequestDetails = ({ route, navigation }: any) => {
+  const { lawyer, serviceType, specId } = route.params
 
   const [title, setTitle] = useState('')
   const [details, setDetails] = useState('')
   const [file, setFile] = useState(null)
   const [loading, setLoading] = useState(false)
 
-  // TODO: Implement this
-  const goToPayement = () => null
+  const dispatch = useAppDispatch()
+
+  // TODO: Implement uploadFile function
+  const uploadFile = () => null
+
+  // constuct request data
+  const constructRequest = async () => {
+    let attachment = file ? await uploadFile() : null
+
+    return {
+      type: serviceType,
+      title,
+      description: details,
+      tagId: specId,
+      attachment,
+      keywords: []
+    } as RequestData
+  }
 
   const submitRequest = async () => {
     try {
       setLoading(true)
+
+      const data = await constructRequest()
+      await requestService.createRequest(data, lawyer.id)
+
+      dispatch(showSnack({ type: 'success', message: 'تم ارسال الطلب بنجاح' }))
+      navigation.navigate('Home')
     } catch (error) {
       console.log(error)
+      dispatch(showSnack({ type: 'error', message: 'حدث خطأ ما حاول مرة اخري' }))
     } finally {
       setLoading(false)
     }
@@ -46,7 +73,7 @@ const RequestDetails = ({ route }: any) => {
         <Spacer h={24} />
         <UploadFile file={file} setFile={setFile} />
         <Spacer h={24} />
-        <Button title='التالي' onPress={goToPayement} />
+        <Button title='ارسال الطلب' onPress={submitRequest} loading={loading} />
       </Container>
     </ScrollContainer>
   )

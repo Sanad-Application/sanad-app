@@ -9,3 +9,12 @@ export type Request = {
   lawyerName: string;
   special: string;
 };
+
+export type RequestData = {
+  type: 'consultation' | 'case';
+  title: string;
+  description?: string;
+  tagId: number;
+  attachment: string | null;
+  keywords?: string[];
+};
