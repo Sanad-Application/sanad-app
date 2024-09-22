@@ -32,4 +32,7 @@ export const Icons = {
   lightBack: require('~assets/icon/light-back.png'),
   upload: require('~assets/icon/upload.png'),
   arrowSend: require('~assets/icon/arrow-send.png'),
+  call: require('~assets/icon/call.png'),
+  video: require('~assets/icon/video.png'),
+  attachment: require('~assets/icon/attachment.png'),
 };

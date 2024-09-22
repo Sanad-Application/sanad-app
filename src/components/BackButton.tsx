@@ -11,7 +11,7 @@ type Props = {
 
 export const BackButton = ({ onPress, light }: Props) => {
   const { goBack, canGoBack } = useAppNavigation()
-  if (!onPress && !canGoBack()) return null
+  // if (!onPress && !canGoBack()) return null
   return <Pressable onPress={onPress || goBack} style={{ marginBottom: heightPixel(24) }}>
     <Icon size={35} source={light ? Icons.lightBack : Icons.back} />
   </Pressable>
