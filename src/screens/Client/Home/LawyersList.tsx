@@ -5,10 +5,11 @@ import { lawyerService } from "~services/lawyers"
 import { heightPixel } from "~theme"
 import { tags, lawyers } from "~utils/fakeData"
 import { LawyerTab } from "./LawyerTab"
+import { Lawyer } from "~types"
 
 export const LawyersList = () => {
   const [activeTag, setActiveTag] = useState(0)
-  const [data, setData] = useState([])
+  const [data, setData] = useState<Lawyer[]>([])
   const [loading, setLoading] = useState(false)
 
   // TODO: Implement this function
@@ -18,10 +19,12 @@ export const LawyersList = () => {
     try {
       setLoading(true)
       const res = await lawyerService.getLawyers()
-      console.log(res.data)
+      setData(res.data.data)
     } catch (e) {
       // TODO: Handle error
       console.log(e)
+    } finally {
+      setLoading(false)
     }
   }
 
@@ -35,7 +38,7 @@ export const LawyersList = () => {
       <Tabs data={tags} active={activeTag} setActive={setActiveTag} />
       <Spacer h={12} />
       <View>
-        {lawyers.map((lawyer) => <LawyerTab key={lawyer.user.id} data={lawyer} />)}
+        {data.map((lawyer) => <LawyerTab key={lawyer.user.id} data={lawyer} />)}
       </View>
     </View>
   )

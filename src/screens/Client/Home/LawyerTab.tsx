@@ -7,7 +7,7 @@ import { Icons, Images } from "~utils/images"
 
 export const LawyerTab = ({ data }: { data: Lawyer }) => {
   const { navigate } = useAppNavigation()
-
+  console.log(data)
   const goToLawerScreen = () =>
     navigate('MakeRequest', { lawyer: data })
 
@@ -17,16 +17,16 @@ export const LawyerTab = ({ data }: { data: Lawyer }) => {
         <Image source={Images.ex_lawyer} style={globalStyles.image} />
       </View>
       <View style={styles.details}>
-        <P size={16}>{data.user.first_name + " " + data.user.last_name}</P>
+        <P size={16}>{data.user.firstName + " " + data.user.lastName}</P>
 
         <View style={styles.middleRow}>
           <View style={globalStyles.row}>
             <Icon source={Icons.briefcase} size={16} style={styles.icon} />
-            <P size={14}>{data.years_of_experience} سنوات خبرة</P>
+            <P size={14}>{data.experienceYears} سنوات خبرة</P>
           </View>
           <View style={globalStyles.row}>
             <Icon source={Icons.star} size={16} style={styles.icon} />
-            <P size={14}>{data.rating}</P>
+            <P size={14}>{data.avgRate}</P>
           </View>
         </View>
 
@@ -39,7 +39,7 @@ export const LawyerTab = ({ data }: { data: Lawyer }) => {
           />
           <View style={globalStyles.row}>
             <Icon source={Icons.location} size={16} style={styles.icon} />
-            <P size={14}>{data.user.location}</P>
+            <P size={14}>{data.location}</P>
           </View>
         </View>
 

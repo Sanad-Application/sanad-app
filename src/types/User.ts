@@ -4,17 +4,17 @@ export type User = {
   dob: string;
   email: string;
   is_email_verified: boolean;
-  first_name: string;
-  last_name: string;
+  firstName: string;
+  lastName: string;
   image_url: string;
   role_id: number;
-  location: string;
 };
 
 export type Lawyer = {
   bio: string;
-  hourly_rate: number;
+  location: string;
+  hourlyRate: number;
   user: User;
-  years_of_experience: number;
-  rating: number;
+  experienceYears: number;
+  avgRate: number;
 };
