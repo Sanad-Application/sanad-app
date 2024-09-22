@@ -1,5 +1,4 @@
-import { useState } from "react"
-import { StyleSheet, View } from "react-native"
+import { View } from "react-native"
 import { ChooseButton, Spacer } from "~components"
 import { globalStyles, widthPixel } from "~theme"
 import { Images } from "~utils/images"

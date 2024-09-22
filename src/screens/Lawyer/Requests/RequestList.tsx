@@ -1,6 +1,6 @@
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import { StyleSheet, View } from "react-native"
-import { SectionHeader, Spacer, Tabs } from "~components"
+import { Spacer, Tabs } from "~components"
 import { lawyerService } from "~services/lawyers"
 import { heightPixel } from "~theme"
 import { requests } from "~utils/fakeData"
@@ -28,7 +28,6 @@ export const RequestList = () => {
   }
   return (
     <View style={styles.container}>
-      <SectionHeader title="المحاميين" onViewAll={goToLawersScreen} />
       <Tabs data={tabs} active={activeTag} setActive={setActiveTag} />
       <Spacer h={12} />
       <View>

@@ -1,33 +1,18 @@
-import { Image, StyleSheet, View } from "react-native"
-import { Button, Icon, P } from "~components"
-import { colors, fontPixel, globalStyles, widthPixel } from "~theme"
+import { StyleSheet, View } from "react-native"
+import { Button, P } from "~components"
+import { colors, widthPixel } from "~theme"
 import { Request } from "~types"
-import { Icons, Images } from "~utils/images"
 
 export const RequestTab = ({ data }: { data: Request }) => {
   const goToRequestScreen = () => null
 
   return (
     <View style={styles.container}>
-      <View style={styles.imgContainer}>
-        <Image source={Images.ex_lawyer} style={globalStyles.image} />
-      </View>
-      <View style={styles.details}>
-        <P size={16}>{data.lawyerName}</P>
-        <P size={14} color={colors.textLight}>{data.special}</P>
-
-        <View style={styles.bottomRow}>
-          <Button
-            title="بدأ الاستشارة"
-            onPress={goToRequestScreen}
-            style={styles.btn}
-            textStyle={styles.btnText}
-          />
-          <View style={globalStyles.row}>
-            <Icon source={Icons.location} size={16} style={styles.icon} />
-            <P size={14}>{(new Date(data.timestamp).toLocaleDateString)()}</P>
-          </View>
-        </View>
+      <P color={colors.primary} fw="bold" center>{data.title}</P>
+      <P color={colors.textLight} center>{data.description}</P>
+      <View style={styles.btnRow}>
+        <Button title="قبول" style={styles.btn} onPress={goToRequestScreen} />
+        <Button title="رفض" style={styles.btn} revert onPress={goToRequestScreen} />
       </View>
     </View>
   )
@@ -35,53 +20,23 @@ export const RequestTab = ({ data }: { data: Request }) => {
 
 const styles = StyleSheet.create({
   container: {
-    flexDirection: 'row',
     borderColor: colors.textLight + '50',
     borderWidth: widthPixel(1),
     borderRadius: widthPixel(8),
     marginBottom: widthPixel(16),
-    height: widthPixel(136),
+    padding: widthPixel(16),
     backgroundColor: colors.white,
     overflow: 'hidden',
   },
-
-  imgContainer: {
-    width: widthPixel(100),
-    marginRight: widthPixel(16),
-    borderRadius: widthPixel(12),
-  },
-
-  details: {
-    padding: widthPixel(16),
-    flex: 1,
-  },
-
-  middleRow: {
+  btnRow: {
     flexDirection: 'row',
-    justifyContent: 'space-between',
-    marginTop: widthPixel(8),
-    paddingRight: widthPixel(12),
-  },
-
-  icon: {
-    marginRight: widthPixel(4),
-    marginBottom: widthPixel(4),
-  },
-
-  bottomRow: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
+    justifyContent: 'space-around',
+    marginTop: widthPixel(16),
   },
 
   btn: {
-    paddingVertical: widthPixel(4),
-    paddingHorizontal: widthPixel(16),
-    borderRadius: widthPixel(16),
-    backgroundColor: colors.primary,
-  },
-
-  btnText: {
-    fontSize: fontPixel(14),
-    color: colors.white,
+    width: '30%',
+    paddingVertical: widthPixel(8),
+    borderRadius: widthPixel(8),
   },
 })
