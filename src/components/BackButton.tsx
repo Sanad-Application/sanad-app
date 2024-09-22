@@ -6,12 +6,13 @@ import { heightPixel } from "~theme"
 
 type Props = {
   onPress?: () => void
+  light?: boolean
 }
 
-export const BackButton = ({ onPress }: Props) => {
+export const BackButton = ({ onPress, light }: Props) => {
   const { goBack, canGoBack } = useAppNavigation()
   if (!onPress && !canGoBack()) return null
   return <Pressable onPress={onPress || goBack} style={{ marginBottom: heightPixel(24) }}>
-    <Icon size={35} source={Icons.back} />
+    <Icon size={35} source={light ? Icons.lightBack : Icons.back} />
   </Pressable>
 }

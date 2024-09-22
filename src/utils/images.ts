@@ -5,6 +5,7 @@ export const Images = {
   consult: require('~assets/img/consult.png'),
   ex_lawyer: require('~assets/img/ex_lawyer.png'),
   homeHeader: require('~assets/img/home-logo.png'),
+  chatWelcome: require('~assets/img/chat-welcome.png'),
   homeCarousel: [
     require('~assets/img/carousel.png'),
     require('~assets/img/carousel.png'),
@@ -28,5 +29,7 @@ export const Icons = {
   chat: require('~assets/icon/chat.png'),
   arrowCircle: require('~assets/icon/arrow-circle.png'),
   back: require('~assets/icon/back.png'),
+  lightBack: require('~assets/icon/light-back.png'),
   upload: require('~assets/icon/upload.png'),
+  arrowSend: require('~assets/icon/arrow-send.png'),
 };

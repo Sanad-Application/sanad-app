@@ -5,9 +5,9 @@ import { Snackbar } from "./Snackbar"
 
 export const AppWrapper = ({ children }: PropsWithChildren) => {
   return <SafeAreaView style={styles.safeArea}>
+    <StatusBar barStyle='dark-content' backgroundColor={colors.background} />
     {children}
     <Snackbar />
-    <StatusBar barStyle='dark-content' backgroundColor={colors.background} />
   </SafeAreaView>
 }
 
