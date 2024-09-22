@@ -63,7 +63,7 @@ export const BottomTabBar = ({
                 break
               case 'Requests':
                 tabBarIcon = Icons.request
-                label = 'الحجوزات'
+                label = 'الطلبات'
                 break
               case 'ChatList':
                 tabBarIcon = Icons.chat

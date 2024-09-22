@@ -13,7 +13,6 @@ const constructLog = (req: any) => {
 
 const injectToken = async (config: any) => {
   const token = (await AsyncStorage.getItem('token')) || null;
-  console.log('token', token);
   if (!config.headers.Authorization && token)
     config.headers.Authorization = `Bearer ${token}`;
   return config;

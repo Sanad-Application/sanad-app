@@ -11,3 +11,4 @@ export * from './SectionHeader';
 export * from './Tabs';
 export * from './ChooseButton';
 export * from './BackButton';
+export * from './Loader';
