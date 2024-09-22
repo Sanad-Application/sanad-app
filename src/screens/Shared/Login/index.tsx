@@ -7,6 +7,7 @@ import { useAppDispatch } from '~store/hooks'
 import { login } from '~store/slices/authSlice'
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import { showSnack } from '~store/slices/uiSlice'
+import messaging from '@react-native-firebase/messaging'
 
 const Login = () => {
   // TODO: remove default values
@@ -19,7 +20,8 @@ const Login = () => {
   const handleLogin = async () => {
     try {
       setLoading(true)
-      const res = await authService.login(email, password)
+      const fcm_token = await messaging().getToken()
+      const res = await authService.login(email, password, fcm_token)
       const { accessToken: token, user } = res.data.data
 
       await AsyncStorage.setItem('token', token)

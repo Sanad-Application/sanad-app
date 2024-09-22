@@ -9,6 +9,7 @@ import { showSnack } from '~store/slices/uiSlice'
 import { authService } from '~services/auth'
 import { login } from '~store/slices/authSlice'
 import AsyncStorage from '@react-native-async-storage/async-storage'
+import messaging from '@react-native-firebase/messaging'
 
 const VerifyEmail = ({ route }: { route: any }) => {
   const [code, setCode] = useState('')
@@ -21,9 +22,11 @@ const VerifyEmail = ({ route }: { route: any }) => {
   const handleVerify = async () => {
     try {
       setLoading(true)
+
       await authService.verifyEmail(email, code)
 
-      const res = await authService.login(email, password)
+      const fcm_token = await messaging().getToken()
+      const res = await authService.login(email, password, fcm_token)
       const { accessToken: token, user } = res.data.data
 
       await AsyncStorage.setItem('token', token)
