@@ -25,9 +25,9 @@ export const LawyersList = () => {
     }
   }
 
-  // useEffect(() => {
-  //   getLawyers()
-  // }, [])
+  useEffect(() => {
+    getLawyers()
+  }, [])
 
   return (
     <View style={styles.container}>
@@ -35,9 +35,7 @@ export const LawyersList = () => {
       <Tabs data={tags} active={activeTag} setActive={setActiveTag} />
       <Spacer h={12} />
       <View>
-        {lawyers.map((lawyer) => (
-          <LawyerTab key={lawyer.user.id} data={lawyer} />
-        ))}
+        {lawyers.map((lawyer) => <LawyerTab key={lawyer.user.id} data={lawyer} />)}
       </View>
     </View>
   )

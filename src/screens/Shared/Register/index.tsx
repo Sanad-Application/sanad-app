@@ -19,7 +19,8 @@ const Register = () => {
   const dispatch = useAppDispatch()
   const { navigate } = useAppNavigation()
 
-  const nextScreen = () => navigate("VerifyEmail", { email, password })
+  const nextScreen = () =>
+    navigate("VerifyEmail", { email, password })
 
   const handleRegister = async () => {
     try {

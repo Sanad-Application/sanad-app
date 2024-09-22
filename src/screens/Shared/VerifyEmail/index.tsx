@@ -3,7 +3,7 @@ import { Pressable, View } from 'react-native'
 import { Button, P, Spacer } from '~components'
 import { colors, globalStyles } from '~theme'
 import { InputBox } from './InputBox'
-import { useAppDispatch } from '~store/hooks'
+import { useAppDispatch, useAppSelector } from '~store/hooks'
 import { useAppNavigation } from '~hooks'
 import { showSnack } from '~store/slices/uiSlice'
 import { authService } from '~services/auth'
@@ -15,22 +15,31 @@ const VerifyEmail = ({ route }: { route: any }) => {
   const [code, setCode] = useState('')
   const [loading, setLoading] = useState(false)
 
+  const { isLawyer } = useAppSelector(state => state.auth)
   const { email, password } = route.params
   const dispatch = useAppDispatch()
   const { navigate } = useAppNavigation()
 
+  const nextStep = async () => {
+    try {
+      if (isLawyer)
+        return navigate('LawyerInfo', { email, password })
+
+      const fcmToken = await messaging().getToken()
+      const res = await authService.login(email, password, fcmToken)
+
+      await AsyncStorage.setItem('token', res.data.token)
+      dispatch(login(res.data.user))
+    } catch (e) {
+      dispatch(showSnack({ type: 'error', text: "حدث خطأ ما" }))
+    }
+  }
+
   const handleVerify = async () => {
     try {
       setLoading(true)
-
       await authService.verifyEmail(email, code)
-
-      const fcm_token = await messaging().getToken()
-      const res = await authService.login(email, password, fcm_token)
-      const { accessToken: token, user } = res.data.data
-
-      await AsyncStorage.setItem('token', token)
-      dispatch(login({ token, user }))
+      await nextStep()
     } catch (e) {
       dispatch(showSnack({ type: 'error', text: "الكود المدخل غير صحيح" }))
     } finally {
