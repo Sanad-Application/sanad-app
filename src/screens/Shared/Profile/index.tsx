@@ -1,3 +1,4 @@
+import AsyncStorage from '@react-native-async-storage/async-storage'
 import { View } from 'react-native'
 import { Button, Container, P, ScrollContainer, Spacer } from '~components'
 import { useAppDispatch } from '~store/hooks'
@@ -6,7 +7,11 @@ import { globalStyles } from '~theme'
 
 const Profile = () => {
   const dispatch = useAppDispatch()
-  const handleLogout = () => dispatch(logout())
+
+  const handleLogout = async () => {
+    await AsyncStorage.removeItem('token')
+    dispatch(logout())
+  }
 
   return (
     <ScrollContainer>

@@ -7,7 +7,7 @@ import { Icons, Images } from "~utils/images"
 
 export const LawyerTab = ({ data }: { data: Lawyer }) => {
   const { navigate } = useAppNavigation()
-  console.log(data)
+
   const goToLawerScreen = () =>
     navigate('MakeRequest', { lawyer: data })
 

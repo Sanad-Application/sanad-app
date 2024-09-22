@@ -6,6 +6,7 @@ export const Images = {
   ex_lawyer: require('~assets/img/ex_lawyer.png'),
   homeHeader: require('~assets/img/home-logo.png'),
   chatWelcome: require('~assets/img/chat-welcome.png'),
+  chatbot: require('~assets/img/chatbot.png'),
   homeCarousel: [
     require('~assets/img/carousel.png'),
     require('~assets/img/carousel.png'),

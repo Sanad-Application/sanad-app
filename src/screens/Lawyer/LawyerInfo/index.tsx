@@ -24,12 +24,19 @@ const LawyerInfo = ({ route }: any) => {
       const res = await authService.login(email, password, fcmToken)
 
       const { accessToken: token, user } = res.data.data
-      await authService.createLawyer({ bio, hourlyRate: +hourlyRate, location, experienceYears }, token)
+
+      const data = {
+        experienceYears: +experienceYears,
+        hourlyRate: +hourlyRate,
+        bio,
+        location,
+      }
+
+      await authService.createLawyer(data, token)
       await AsyncStorage.setItem('token', token)
       dispatch(login({ token, user }))
     } catch (error) {
-      // TODO: Handle error
-      console.log("Error:", error)
+      console.log('Error: ', error)
     } finally {
       setLoading(false)
     }

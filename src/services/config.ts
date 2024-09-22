@@ -13,7 +13,8 @@ const constructLog = (req: any) => {
 
 const injectToken = async (config: any) => {
   const token = (await AsyncStorage.getItem('token')) || null;
-  if (token) config.headers.Authorization = `Bearer ${token}`;
+  if (!config.headers.Authorization && token)
+    config.headers.Authorization = `Bearer ${token}`;
   return config;
 };
 
@@ -26,7 +27,6 @@ client.interceptors.response.use(
   },
   error => {
     log.server_Error(constructLog(error.request));
-    console.log(error.response.data);
     return Promise.reject(error);
   },
 );

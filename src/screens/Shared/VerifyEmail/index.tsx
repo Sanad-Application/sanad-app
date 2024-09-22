@@ -26,10 +26,12 @@ const VerifyEmail = ({ route }: { route: any }) => {
         return navigate('LawyerInfo', { email, password })
 
       const fcmToken = await messaging().getToken()
-      const res = await authService.login(email, password, fcmToken)
 
-      await AsyncStorage.setItem('token', res.data.token)
-      dispatch(login(res.data.user))
+      const res = await authService.login(email, password, fcmToken)
+      const { accessToken: token, user } = res.data.data
+
+      await AsyncStorage.setItem('token', token)
+      dispatch(login({ token, user }))
     } catch (e) {
       dispatch(showSnack({ type: 'error', text: "حدث خطأ ما" }))
     }

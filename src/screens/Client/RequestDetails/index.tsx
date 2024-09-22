@@ -9,8 +9,20 @@ const RequestDetails = ({ route }: any) => {
   const [title, setTitle] = useState('')
   const [details, setDetails] = useState('')
   const [file, setFile] = useState(null)
+  const [loading, setLoading] = useState(false)
 
+  // TODO: Implement this
   const goToPayement = () => null
+
+  const submitRequest = async () => {
+    try {
+      setLoading(true)
+    } catch (error) {
+      console.log(error)
+    } finally {
+      setLoading(false)
+    }
+  }
 
   return (
     <ScrollContainer>
