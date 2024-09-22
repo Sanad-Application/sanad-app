@@ -8,8 +8,6 @@ const Requests = () => {
   const [activeType, setActiveType] = useState<'consult' | 'case'>('consult')
   const [activeTab, setActiveTab] = useState(0)
 
-  // TODO: get requests from the server
-
   return (
     <ScrollContainer>
       <Container>

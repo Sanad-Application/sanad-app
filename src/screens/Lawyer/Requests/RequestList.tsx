@@ -1,37 +1,39 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { StyleSheet, View } from "react-native"
 import { Spacer, Tabs } from "~components"
-import { lawyerService } from "~services/lawyers"
 import { heightPixel } from "~theme"
-import { requests } from "~utils/fakeData"
 import { RequestTab } from "./RequestTab"
+import { requestService } from "~services/request"
+import { Request } from "~types"
 
-const tabs = ['الحالية', 'القديمة', 'تحت المراجعة']
+const tabs = ['الكل', 'قيد المراجعة', 'المقبولة', 'المرفوضة']
 
 export const RequestList = () => {
   const [activeTag, setActiveTag] = useState(0)
-  const [data, setData] = useState([])
+  const [data, setData] = useState<Request[]>([])
   const [loading, setLoading] = useState(false)
-
-  // TODO: Implement this function
-  const goToLawersScreen = () => null
 
   const getRequests = async () => {
     try {
       setLoading(true)
-      const res = await lawyerService.getLawyers()
-      console.log(res.data)
+      const res = await requestService.getRequests(activeTag + 1)
+      setData(res.data.data)
     } catch (e) {
       // TODO: Handle error
       console.log(e)
     }
   }
+
+  useEffect(() => {
+    getRequests()
+  }, [activeTag])
+
   return (
     <View style={styles.container}>
       <Tabs data={tabs} active={activeTag} setActive={setActiveTag} />
       <Spacer h={12} />
       <View>
-        {requests.map((request) => (
+        {data.map((request) => (
           <RequestTab key={request.id} data={request} />
         ))}
       </View>
