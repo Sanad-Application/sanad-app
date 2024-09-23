@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { ActivityIndicator, StyleSheet, View } from "react-native"
+import { StyleSheet, View } from "react-native"
 import { Loader, Spacer, Tabs } from "~components"
 import { heightPixel } from "~theme"
 import { RequestTab } from "./RequestTab"

@@ -11,7 +11,7 @@ export const useGetUser = () => {
   const getUser = async () => {
     try {
       const res = await authService.me()
-      dispatch(setUser(res.data))
+      dispatch(setUser(res.data.data))
     } catch (e) {
     } finally {
       BootSplash.hide({ fade: true })

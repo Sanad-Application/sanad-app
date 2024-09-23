@@ -1,18 +1,22 @@
 import { StyleSheet, View } from "react-native"
 import { Button, P } from "~components"
+import { useAppNavigation } from "~hooks"
 import { colors, widthPixel } from "~theme"
 import { Request } from "~types"
 
 export const RequestTab = ({ data }: { data: Request }) => {
-  const goToRequestScreen = () => null
+  const { navigate } = useAppNavigation()
+
+  const goToChat = () =>
+    navigate('Chat', { personId: data.userId })
 
   return (
     <View style={styles.container}>
-      <P color={colors.primary} fw="bold" center>{data.title}</P>
+      <P color={colors.primary} size={18} fw="medium" center>{data.title}</P>
       <P color={colors.textLight} center>{data.description}</P>
       <View style={styles.btnRow}>
-        <Button title="قبول" style={styles.btn} onPress={goToRequestScreen} />
-        <Button title="رفض" style={styles.btn} revert onPress={goToRequestScreen} />
+        <Button title="قبول" style={styles.btn} onPress={goToChat} />
+        <Button title="رفض" style={styles.btn} revert onPress={() => null} />
       </View>
     </View>
   )

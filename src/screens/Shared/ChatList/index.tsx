@@ -1,12 +1,16 @@
-import { View } from 'react-native'
-import { P } from '~components'
-import { globalStyles } from '~theme'
+import { Container, P, ScrollContainer, Spacer } from '~components'
+import { colors } from '~theme'
 
 const ChatList = () => {
   return (
-    <View style={globalStyles.container}>
-      <P>ChatList</P>
-    </View>
+    <ScrollContainer>
+      <Container>
+        <Spacer h={16} />
+        <P size={20} fw='bold' center>المحادثات</P>
+        <Spacer h={40} />
+        <P center color={colors.textLight} size={16}>لا يوجد لديك محادثات</P>
+      </Container>
+    </ScrollContainer>
   )
 }
 

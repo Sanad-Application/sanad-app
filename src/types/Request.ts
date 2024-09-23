@@ -8,6 +8,8 @@ export type Request = {
   timestamp: string;
   lawyerName: string;
   special: string;
+  userId: number;
+  userName: string;
 };
 
 export type RequestData = {
