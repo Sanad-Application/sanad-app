@@ -11,13 +11,6 @@ socket.on('connect_error', e => {
   console.log('Sad', e);
 });
 
-export type Message = {
-  room: string;
-  content: string;
-  senderId: number;
-  receiverId: number;
-};
-
 const constructRoomName = (id1: number, id2: number) =>
   'chat-' + [id1, id2].sort().join('-');
 

@@ -3,6 +3,7 @@ import BottomTabs from './BottomTabs'
 import ChatBot from '~screens/Shared/ChatBot'
 import RequestDetails from '~screens/Client/RequestDetails'
 import MakeRequest from '~screens/Client/MakeRequest'
+import Chat from '~screens/Shared/Chat'
 
 const Stack = createNativeStackNavigator()
 
@@ -13,6 +14,7 @@ const ClientNavigator = () => {
       <Stack.Screen name="MakeRequest" component={MakeRequest} />
       <Stack.Screen name="RequestDetails" component={RequestDetails} />
       <Stack.Screen name="ChatBot" component={ChatBot} />
+      <Stack.Screen name="Chat" component={Chat} />
     </Stack.Navigator>
   )
 }

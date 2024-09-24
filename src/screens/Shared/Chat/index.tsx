@@ -5,14 +5,17 @@ import { ChatInput } from './ChatInput'
 import { View } from 'react-native'
 import { TopSection } from './TopSection'
 import { MessageBubble } from './MessageBubble'
-import { AttachmentButton } from './AttachmentButton'
-import { socket, joinRoom, sendMessage, Message } from '../../../socket'
+import { socket, joinRoom, sendMessage } from '../../../socket'
 import { useAppSelector } from '~store/hooks'
+import { Message } from '~types'
+import { colors } from '~theme'
 
 const Chat = ({ route }: any) => {
   const { user } = useAppSelector(state => state.auth)
-  const { personId } = route.params
   const id = user!!.id
+
+  let { personId, room } = route.params
+  personId = personId || room.split('-').find((ID: string) => !isNaN(+ID) && +ID !== id)
 
   const [messages, setMessages] = useState<IMessage[]>([])
 
@@ -40,7 +43,7 @@ const Chat = ({ route }: any) => {
 
 
   return (
-    <View style={{ flex: 1 }}>
+    <View style={{ flex: 1, backgroundColor: colors.background }}>
       <TopSection />
       <GiftedChat
         messages={messages}
@@ -51,7 +54,6 @@ const Chat = ({ route }: any) => {
         alwaysShowSend
         renderInputToolbar={(props) => <ChatInput {...props} />}
         renderSend={(props) => <SendButton {...props} />}
-        // renderActions={props => <AttachmentButton {...props} />}
         renderBubble={props => <MessageBubble {...props} />}
       />
     </View>
